@@ -1,6 +1,6 @@
+import * as cookies from "../utils/cookies";
 export const INITIAL_AUTH_STATE = {
-  isAuthUser: !!localStorage.getItem("user"),
-  user: JSON.parse(localStorage.getItem("user")) || {},
+  isAuthUser: !!cookies.getCookie("session_id"),
   isLoading: false,
   error: null,
 };

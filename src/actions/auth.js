@@ -9,3 +9,8 @@ export const loginSuccess = ({ user }) => ({
   type: actionTypes.LOGIN_SUCCESS,
   payload: { user },
 });
+
+export const handleError = (errorMessage) => ({
+  type: actionTypes.HANDLE_ERROR,
+  payload: { error: errorMessage },
+});

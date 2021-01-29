@@ -16,6 +16,11 @@ export function* loginRequest({ payload }) {
           user: result.data.data,
         })
       );
+    } else {
+      throw new Error(result.data.message);
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+    yield put(actions.handleError(error.message));
+  }
 }
