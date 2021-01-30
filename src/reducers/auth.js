@@ -13,7 +13,7 @@ const authReducer = (state = INITIAL_AUTH_STATE, action) => {
       cookies.setCookie("session_id", action.payload.user.token, 1);
       return {
         ...state,
-        isAuthUser: true,
+        isAuthUser: action.payload.user.token,
         isLoading: false,
       };
     }
@@ -22,6 +22,12 @@ const authReducer = (state = INITIAL_AUTH_STATE, action) => {
         ...state,
         error: action.payload.error,
         isLoading: false,
+      };
+    }
+    case actionTypes.LOGOUT_SUCCESS: {
+      return {
+        ...state,
+        isAuthUser: false,
       };
     }
     default:

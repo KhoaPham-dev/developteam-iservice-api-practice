@@ -1,0 +1,9 @@
+@keyframes expand {
+  from {
+    opacity: 0;
+  }
+}
+.alert {
+  margin-top: 8px;
+  animation: expand 0.5s ease;
+}

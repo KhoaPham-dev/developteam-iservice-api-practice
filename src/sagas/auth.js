@@ -24,3 +24,19 @@ export function* loginRequest({ payload }) {
     yield put(actions.handleError(error.message));
   }
 }
+export function* logoutRequest({ payload }) {
+  try {
+    let result = yield call(api.logout, { token: payload.token });
+    console.log(result);
+    if (result.data.result) {
+      //yield put(actions.logoutSuccess());
+    } else {
+      throw new Error(result.data.message);
+    }
+  } catch (error) {
+    console.log(error.message);
+    //yield put(actions.handleError(error.message));
+  } finally {
+    yield put(actions.logoutSuccess());
+  }
+}

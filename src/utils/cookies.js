@@ -18,3 +18,6 @@ export function getCookie(name) {
   }
   return null;
 }
+export function deleteCookie(name) {
+  document.cookie = name + "=; path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+}
